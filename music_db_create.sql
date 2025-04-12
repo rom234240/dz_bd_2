@@ -45,8 +45,13 @@ CREATE TABLE IF NOT EXISTS compilations (
 	release_year DATE NOT NULL
 );
 
-create table if not exists compilation_tracks (
+CREATE TABLE IF NOT EXISTS compilation_tracks (
 	track_id INTEGER NOT NULL REFERENCES tracks(track_id),
 	comp_id INTEGER NOT NULL REFERENCES compilations(comp_id),
 	track_order INTEGER NOT NULL
 );
+
+ALTER TABLE tracks
+ALTER COLUMN duration TYPE VARCHAR(60);
+ 
+
